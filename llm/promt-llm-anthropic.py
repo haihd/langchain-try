@@ -6,6 +6,10 @@ from dotenv import load_dotenv
 load_dotenv()
 os.environ["ANTHROPIC_API_KEY"] = os.getenv('ANTHROPIC_API_KEY')
 
+# For using langsmith to debug purpose
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_API_KEY"] = os.getenv('LANGCHAIN_API_KEY')
+
 promt = ChatPromptTemplate.from_template("tell me a 3 jokes about {smt}")
 model = ChatAnthropic(temperature=0, model_name="claude-2.1")
 
